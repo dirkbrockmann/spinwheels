@@ -25,10 +25,6 @@ function draw_singularities(){
 	})
 }
 
-const update = (display) => {
-	
-	
-}
 
 const initialize = (display,config) => {
 	
@@ -75,4 +71,4 @@ const go = (display,config) => {
 }
 
 
-export {initialize,go,update}
+export {initialize,go,go as update}

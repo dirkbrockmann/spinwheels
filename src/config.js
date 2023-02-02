@@ -16,7 +16,7 @@ export default {
 	},
 	simulation: {
 		delay:0,
-		colormap:"bam",
+		colormap:"vik",
 		pinwheel_opacity:0.5
 	}
 }

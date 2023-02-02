@@ -11,9 +11,9 @@ function initialize (display,config) {
 	visual_init(display,config); 
 };
 
-function update (display) {
+function update (display,config) {
 	model_update();
-	visual_update(display);
+	visual_update(display,config);
 }
 
 export {iterate,initialize,update}

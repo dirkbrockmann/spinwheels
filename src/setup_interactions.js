@@ -18,6 +18,6 @@ export default (display,controls,config) => {
 	ct.reset.update(()=>resetparameters(controls))	
 	ct.go.update(()=>startstop(display,config))
 	ct.setup.update(()=>initialize(display,config))
-	
+	param.show_pinwheels.widget.update(()=>update(display,config))
 }
 
