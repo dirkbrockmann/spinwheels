@@ -1,5 +1,5 @@
 export default {
-		dt:0.05,
+		dt:0.1,
 		N:50,
 		pinwheel_threshold:0.05,
 		oscillator_speed: {
