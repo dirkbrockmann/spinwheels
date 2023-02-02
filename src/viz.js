@@ -1,48 +1,77 @@
 import * as d3 from "d3"
+import colors from "./colormaps.js"
 import param from "./parameters.js"
-import {agents} from "./model.js"
+import {agents,singularities} from "./model.js"
+import cfg from "./config.js"
 
-const L = param.L;
-const X = d3.scaleLinear().domain([0,L]);
-const Y = d3.scaleLinear().domain([0,L]);
+const paint = colors[cfg.simulation.colormap];
+const N = param.N;
+const ds = 1.0/(2*N+1);
 
+const X = d3.scaleLinear().domain([-0.5,0.5]);
+const Y = d3.scaleLinear().domain([-0.5,0.5]);
+var ctx,dL,W,H;
+
+function draw_singularities(){
+	var knut = param.show_pinwheels.widget.value() ? cfg.simulation.pinwheel_opacity : 0;
+	ctx.fillStyle= "rgba(255, 255, 255,"+knut+")";
+	ctx.strokeStyle = "rgba(0, 0, 0,"+knut+")";;
+
+	singularities.forEach(d=>{
+		ctx.beginPath();
+		ctx.arc(X(d.x), Y(d.y), 20, 0, 2 * Math.PI);
+		ctx.fill()
+		ctx.stroke();
+	})
+}
 
 const update = (display) => {
 	
-	display.selectAll(".node")
-		.style("fill", d => param.color_by_heading.widget.value() ? d3.interpolateSinebow(d.theta/2/Math.PI)  : "black")
 	
 }
 
 const initialize = (display,config) => {
-
-	const W = config.display_size.width;
-	const H = config.display_size.height;
 	
+	W = config.display_size.width;
+	H = config.display_size.height;
+	
+	dL = ds*W;
+		
 	X.range([0,W]);
 	Y.range([0,H]);
-		
-	display.selectAll("#origin").remove();
-	display.selectAll(".node").remove();
 	
-	const origin = display.append("g").attr("id","origin")
+	ctx = display.node().getContext('2d');
 	
-	origin.selectAll(".node").data(agents).enter().append("circle")
-		.attr("class","node")
-		.attr("cx",d=>X(d.x))
-		.attr("cy",d=>Y(d.y))
-		.attr("r",X(param.agentsize/2))
-		.style("fill", d => param.color_by_heading.widget.value() ? d3.interpolateSinebow(d.theta/2/Math.PI)  : "black")
+	ctx.clearRect(0, 0, W, H);
+	ctx.strokeStyle = "black";
+	ctx.strokeRect(0, 0, config.display_size.width, config.display_size.height);		
+
+	agents.forEach(d=>{
+		ctx.fillStyle=paint(d.theta/2/Math.PI);
+		ctx.fillRect(X(d.x-ds/2), Y(d.y-ds/2), X(ds), Y(ds));
+	})
 	
+	ctx.strokeStyle = "black";
+	ctx.strokeRect(0, 0, config.display_size.width, config.display_size.height);		
 };
 
-const go = (display) => {
+
+const go = (display,config) => {
 	
-	display.selectAll(".node")
-		.attr("cx",d=>X(d.x))
-		.attr("cy",d=>Y(d.y))
-		.style("fill", d => param.color_by_heading.widget.value() ? d3.interpolateSinebow(d.theta/2/Math.PI)  : "black")
 	
+	ctx.clearRect(0, 0, W, H);
+	ctx.strokeStyle = "black";
+	ctx.strokeRect(0, 0, config.display_size.width, config.display_size.height);		
+
+	agents.forEach(d=>{
+		ctx.fillStyle=paint(d.theta/2/Math.PI);
+		ctx.fillRect(X(d.x-ds/2), Y(d.y-ds/2), X(ds), Y(ds));
+	})
+	
+	ctx.strokeStyle = "black";
+	ctx.strokeRect(0, 0, config.display_size.width, config.display_size.height);
+	
+	draw_singularities()		
 }
 
 

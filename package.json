@@ -1,11 +1,11 @@
 {
-  "name": "explorable_template",
-  "title": "Explorable Template (Vicsek Model)",
+  "name": "spinwheels",
+  "title": "Spin Wheels",
   "version": "1.0.0",
-  "description": "This is a template for making a complexity explorable. The template can be used to create a new complexity explorable. This template implements the Vicsek Model.",
+  "description": "This explorable is a spatial implementation of the Kuramoto Model for phase coupled oscillators. It illustrates spatial synchronization and the dynamics of phase singularities.",
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/dirkbrockmann/explorable_template.git"
+    "url": "git+https://github.com/dirkbrockmann/spinwheels.git"
   },
   "author": "Dirk Brockmann (https://rocs.hu-berlin.de)",
   "main": "./dist/index.js",
@@ -16,11 +16,17 @@
     "dev": "webpack serve --static dist/ --mode development",
     "show": "http-server dist -o"
   },
-  "keywords": ["complexity","explorables","visualization"],
+  "keywords": [
+    "complexity",
+    "explorables",
+    "visualization"
+  ],
   "license": "ISC",
   "dependencies": {
     "css-loader": "^6.7.3",
+    "d3-interpolate": "^3.0.1",
     "d3-widgets": "^1.0.16",
+    "lattices": "^1.0.10",
     "lodash-es": "^4.17.21",
     "tachyons": "^4.12.0"
   },
