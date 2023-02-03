@@ -33,6 +33,7 @@ const initialize = () => {
 	agents = s.nodes;
 	agents.forEach(a=>{a.theta=Math.random()*2*Math.PI});	
 	compute_singularities(agents)
+	
 };
 
 const go  = () => {

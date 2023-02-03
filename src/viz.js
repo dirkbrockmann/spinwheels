@@ -18,6 +18,7 @@ function draw_singularities(){
 	ctx.strokeStyle = "rgba(0, 0, 0,"+knut+")";;
 
 	singularities.forEach(d=>{
+		
 		ctx.beginPath();
 		ctx.arc(X(d.x), Y(d.y), 20, 0, 2 * Math.PI);
 		ctx.fill()
@@ -43,8 +44,9 @@ const initialize = (display,config) => {
 	ctx.strokeRect(0, 0, config.display_size.width, config.display_size.height);		
 
 	agents.forEach(d=>{
+		const c = d.cell();
 		ctx.fillStyle=paint(d.theta/2/Math.PI);
-		ctx.fillRect(X(d.x-ds/2), Y(d.y-ds/2), X(ds), Y(ds));
+		ctx.fillRect(X(c[2].x), Y(c[2].y), (X(c[0].x)-X(c[2].x)), (Y(c[0].y)-Y(c[2].y)));
 	})
 	
 	ctx.strokeStyle = "black";
@@ -60,8 +62,9 @@ const go = (display,config) => {
 	ctx.strokeRect(0, 0, config.display_size.width, config.display_size.height);		
 
 	agents.forEach(d=>{
+		const c = d.cell();
 		ctx.fillStyle=paint(d.theta/2/Math.PI);
-		ctx.fillRect(X(d.x-ds/2), Y(d.y-ds/2), X(ds), Y(ds));
+		ctx.fillRect(X(c[2].x), Y(c[2].y), (X(c[0].x)-X(c[2].x)), (Y(c[0].y)-Y(c[2].y)));
 	})
 	
 	ctx.strokeStyle = "black";
