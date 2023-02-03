@@ -4,7 +4,7 @@ export default {
 		pinwheel_threshold:0.05,
 		oscillator_speed: {
 			range:[0,2],
-			default:1
+			default:0
 		},
 		coupling_strength: {
 			range:[0,1],
