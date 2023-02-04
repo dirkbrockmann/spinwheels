@@ -10,6 +10,10 @@ export default {
 			range:[0,1],
 			default:0
 		},
+		oscillator_heterogeneity: {
+			range:[0,0.5],
+			default:0
+		},
 		show_pinwheels: {
 			default: false
 		}

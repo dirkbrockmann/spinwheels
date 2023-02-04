@@ -31,7 +31,10 @@ const initialize = () => {
 	const s = sqlat(N).boundary("periodic");
 
 	agents = s.nodes;
-	agents.forEach(a=>{a.theta=Math.random()*2*Math.PI});	
+	agents.forEach(a=>{
+		a.theta = Math.random()*2*Math.PI;
+		a.domega = 2*Math.random()-1;
+	});	
 	compute_singularities(agents)
 	
 };
@@ -41,10 +44,11 @@ const go  = () => {
 	param.tick++;
 	
 	const sp = param.oscillator_speed.widget.value();
+	const domega = param.oscillator_heterogeneity.widget.value();
 	const K = param.coupling_strength.widget.value();
 
 	agents.forEach(a=>{
-		a.theta += dt*(sp+K*sumBy(a.neighbors,function(x){return Math.sin(x.theta-a.theta)})	)
+		a.theta += dt*(sp*(1+domega*a.domega)+K*sumBy(a.neighbors,function(x){return Math.sin(x.theta-a.theta)})	)
 		a.theta = a.theta % (2*Math.PI)		
 	})
 	
