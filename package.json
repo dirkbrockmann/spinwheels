@@ -1,7 +1,7 @@
 {
   "name": "@explorables/spinwheels",
   "title": "Spin Wheels",
-  "version": "1.0.12",
+  "version": "1.0.13",
   "license": "CC-BY-4.0",
   "description": "This explorable is a spatial implementation of the Kuramoto Model for phase coupled oscillators. It illustrates spatial synchronization and the dynamics of phase singularities.",
   "repository": {
