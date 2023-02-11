@@ -1,4 +1,11 @@
+[cc-by]: http://creativecommons.org/licenses/by/4.0/
+[cc-by-image]: https://i.creativecommons.org/l/by/4.0/88x31.png
+[cc-by-shield]: https://img.shields.io/badge/License-CC%20BY%204.0-lightgrey.svg
+
 # Spin Wheels
+
+[![CC BY 4.0][cc-by-shield]][cc-by]
+
 
 This explorable illustrates some interesting and beautiful properties of oscillators that are spatially arranged on a lattice and interact with their neighbors by phase coupling. It's the [Kuramoto Model](https://en.wikipedia.org/wiki/Kuramoto_model) on a square lattice.
 
@@ -25,7 +32,7 @@ Out of the box you can use the explorable in a basic `index.html` file like this
 	</script>
 </html>
 ```
-The header `<script>` tag loads the bundle, the `<div>` in the document is the container in which the explorable gets anchored when the function `spinwheels.load()` gets executed at the bottom. The `load` function needs the `<div>` container `id` as an agument.
+The header `<script>` tag loads the bundle, the `<div>` in the document is the container in which the explorable gets anchored when the function `spinwheels.load()` gets executed at the bottom. The `load` function needs the `<div>` container `id` as an argument.
 
 ## Installing the whole package locally
 
@@ -43,5 +50,13 @@ Go to the directory, install, build and show using `npm`:
 3. `npm run build`
 4. `npm run show`
 
+--- 
+
+## License
+
+This work is licensed under a
+[Creative Commons Attribution 4.0 International License][cc-by].
+
+[![CC BY 4.0][cc-by-image]][cc-by]
 
 
