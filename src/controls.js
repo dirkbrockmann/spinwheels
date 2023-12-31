@@ -19,7 +19,7 @@ const sliders = map(va,
 					.size(cfg.widgets.slider_size)
 					.girth(cfg.widgets.slider_girth)
 					.knob(cfg.widgets.slider_knob)
-					.fontsize(cfg.widgets.fontsize)
+				//	.fontsize(cfg.widgets.fontsize)
 		);
 
 const toggles = map(bo, 
@@ -27,7 +27,7 @@ const toggles = map(bo,
 					.id(v.id)
 					.label(v.label)
 					.value(v.default)
-					.fontsize(cfg.widgets.fontsize)					
+				//	.fontsize(cfg.widgets.fontsize)					
 		);
 
 
