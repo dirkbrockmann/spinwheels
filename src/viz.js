@@ -40,17 +40,13 @@ const initialize = (display,config) => {
 	ctx = display.node().getContext('2d');
 	
 	ctx.clearRect(0, 0, W, H);
-	ctx.strokeStyle = "black";
-	ctx.strokeRect(0, 0, config.display_size.width, config.display_size.height);		
-
+		
 	agents.forEach(d=>{
 		const c = d.cell();
 		ctx.fillStyle=paint(d.theta/2/Math.PI);
 		ctx.fillRect(X(c[2].x), Y(c[2].y), (X(c[0].x)-X(c[2].x)), (Y(c[0].y)-Y(c[2].y)));
 	})
-	
-	//ctx.strokeStyle = "black";
-	//ctx.strokeRect(0, 0, config.display_size.width, config.display_size.height);		
+		
 };
 
 
@@ -58,8 +54,6 @@ const go = (display,config) => {
 	
 	
 	ctx.clearRect(0, 0, W, H);
-//	ctx.strokeStyle = "black";
-//	ctx.strokeRect(0, 0, config.display_size.width, config.display_size.height);		
 
 	agents.forEach(d=>{
 		const c = d.cell();
