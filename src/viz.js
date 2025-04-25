@@ -61,8 +61,6 @@ const go = (display,config) => {
 		ctx.fillRect(X(c[2].x), Y(c[2].y), (X(c[0].x)-X(c[2].x)), (Y(c[0].y)-Y(c[2].y)));
 	})
 	
-	ctx.strokeStyle = "black";
-	ctx.strokeRect(0, 0, config.display_size.width, config.display_size.height);
 	
 	draw_singularities()		
 }
