@@ -4,7 +4,7 @@
   "subtitle": "Phase coupled oscillators on a lattice",
   "description": "This explorable is a spatial implementation of the Kuramoto Model for phase coupled oscillators. It illustrates spatial synchronization and the dynamics of phase singularities.",
   "author": "Dirk Brockmann (https://synosy.github.io)",
-  "version": "2.0.10",
+  "version": "2.0.11",
   "license": "CC-BY-4.0",
   "repository": {
     "type": "git",
